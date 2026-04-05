@@ -12,7 +12,8 @@
         <h2>Results of my code:</h2>
         <p id="results" class="block"></p>
         <script id="task_id">
-            {# INPUT #}
+            // commenting this out so code runs smoothly
+            // {# INPUT #} 
             let data = [
                 {"page_id": 6682420, "creation_date": "2021-09-13", "title": "André Baniwa"},
                 {"page_id": 4246775, "creation_date": "2013-12-10", "title": "Benki Piyãko"},
@@ -28,12 +29,25 @@
                 {"page_id": 6549130, "creation_date": "2021-04-10", "title": "Zezico Guajajara"},
             ];
 
-            {# YOUR CODE HERE #}
-
+            // commenting this out so code runs smoothly
+            // {# YOUR CODE HERE #}
+            // Making an arrray to help track the months
+            // This is the starter of my attempt
             const monthNames = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
 ];
+
+            // I am turning each article object to a sentence that is readable
+            const lines = data.map(function (item) {
+  const [year, month, day] = item.creation_date.split("-");
+  const monthName = monthNames[Number(month) - 1];
+
+  return `Article "${item.title}" (Page ID ${item.page_id}) was created at ${monthName} ${Number(day)}, ${year}.`;
+});
+
+document.getElementById("results").innerText = lines.join("\n");
+
 
         </script>
         <script>
