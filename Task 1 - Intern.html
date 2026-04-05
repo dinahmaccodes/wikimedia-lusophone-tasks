@@ -6,7 +6,7 @@
         <style>.block { background-color:gainsboro; padding:1em; } </style>
     </head>
     <body>
-        <h1>YOUR USERNAME - Task 1</h1>
+        <h1>DINAHMACCODES - Task 1</h1>
         <h2>My code:</h2>
         <p id="code" class="block"></p>
         <h2>Results of my code:</h2>
@@ -39,15 +39,24 @@
 ];
 
             // I am turning each article object to a sentence that is readable
+            // Making use of map to return aa new array 
             const lines = data.map(function (item) {
+            // To better understand, the date is YYYY-MM-DD
+            // so I am splitting the date by the "-" to get the year, month and day in the code below
   const [year, month, day] = item.creation_date.split("-");
   const monthName = monthNames[Number(month) - 1];
-
+            // This is to build the sentence output in the format required
   return `Article "${item.title}" (Page ID ${item.page_id}) was created at ${monthName} ${Number(day)}, ${year}.`;
 });
 
+        // This final line mergess all lines into one sentence
+        // Then print it out 
 document.getElementById("results").innerText = lines.join("\n");
 
+        // Ran this codebase by using a simple puthon command
+        // So I can see the outcome on a webpage  
+        // python3 -m http.server 8000
+        // Then use this link on any browser - http://0.0.0.0:8000/Task%201%20-%20Intern.html
 
         </script>
         <script>
